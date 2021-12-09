@@ -2,5 +2,6 @@
 {
     Menu,
     Game,
-    GameOver
+    GameOver,
+    Settings
 };

@@ -13,7 +13,7 @@ public class SlotHandler : MonoBehaviour
     public GameObject endDisplay;
     public GameObject gameDisplay;
     public Button start;
-    public int get;
+    private int get;
 
     private bool startClicked;
 
@@ -26,6 +26,7 @@ public class SlotHandler : MonoBehaviour
             for (int txts = 0; txts < txtFields.Count; txts++)
             {
                 var randNum = UnityEngine.Random.Range(0, 10);
+                Debug.Log(randNum);
                 txtFields[txts].text = randNum.ToString();
                 if (txts == 2)
                 {
@@ -45,50 +46,50 @@ public class SlotHandler : MonoBehaviour
         startClicked = false;
         if (get == 0 || get == 1)
         {
-            StartCoroutine(ShowMessage("Bad Luck", 2));
+            StartCoroutine(ShowMessage("Bad Luck!!!!", 2));
             start.interactable = false;
             Invoke("EndDisplay", 1);
         }
         if (get == 6)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Woahhh Its a Six!!!!!", 2));
+            StartCoroutine(ShowMessage("Woahhh Its a Six!!!!", 2));
             AddScore(get);
         }
         if (get == 4)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Woahhh Its a Four!!!!!", 2));
+            StartCoroutine(ShowMessage("Woahhh Its a Four!!!!", 2));
             AddScore(get);
         }
         if (get == 2 || get == 3)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Not Bad", 2));
+            StartCoroutine(ShowMessage("Not Bad!!!!", 2));
             AddScore(get);
         }
         if (get == 5)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Awesome!", 2));
+            StartCoroutine(ShowMessage("Awesome!!!!", 2));
             AddScore(get);
         }
         if (get == 7)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Monster", 2));
+            StartCoroutine(ShowMessage("Crusher!!!!", 2));
             AddScore(get);
         }
         if (get == 8)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("Aree bhai bhai bhai", 2));
+            StartCoroutine(ShowMessage("Monster!!!!", 2));
             AddScore(get);
         }
         if (get == 9)
         {
             StartCoroutine(TimeoutEndTurnButton());
-            StartCoroutine(ShowMessage("GodLike", 2));
+            StartCoroutine(ShowMessage("GodLike!!!!", 2));
             AddScore(get);
         }
     }

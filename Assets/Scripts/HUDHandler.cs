@@ -8,6 +8,7 @@ public class HUDHandler : MonoBehaviour
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject MenuPanel;
     [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject SettingPanel;
 
     private void Start()
     {
@@ -19,17 +20,28 @@ public class HUDHandler : MonoBehaviour
         if (state == HUDstate.Menu)
         {
             MenuPanel.SetActive(true);
-            MainPanel.SetActive(false);
+            //MainPanel.SetActive(false);
             GameOverPanel.SetActive(false);
+            SettingPanel.SetActive(false);
 
         }
         else if (state == HUDstate.Game)
         {
             MainPanel.SetActive(true);
             MenuPanel.SetActive(false);
+            SettingPanel.SetActive(false);
+        }
+        else if(state == HUDstate.Settings)
+        {
+            MenuPanel.SetActive(false);
+            MainPanel.SetActive(false);
+            GameOverPanel.SetActive(false);
+            SettingPanel.SetActive(true);
         }
         else
+        {
             GameOverPanel.SetActive(true);
+        }
     }
 
 
@@ -49,7 +61,11 @@ public class HUDHandler : MonoBehaviour
         Clean();
     }
 
-    
+    public void OnClickSettings()
+    {
+        ActiveGameState(HUDstate.Settings);
+    }
+
     public void Clean()
     {
         PlayerPrefs.DeleteAll();
