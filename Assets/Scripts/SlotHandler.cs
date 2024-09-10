@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SlotHandler : MonoBehaviour
 {
-
+    #region PUBLIC_PROPERTIES
     [SerializeField] private List<Text> txtFields;
     [SerializeField] private Text scoreText;
     [SerializeField] private Text scoreMsg;
@@ -18,27 +18,67 @@ public class SlotHandler : MonoBehaviour
     private bool startClicked;
 
     private int scoreCount = 0;
+    #endregion
+
+    #region PRIVATE_PROPERTIES
+    #endregion
+
+    #region UNITY_CALLBACKS
+    #endregion
+
+    #region PUBLIC_METHODS
+    public void OnClickStart()
+    {
+        StartCoroutine(StartMachine());
+    }
+
+    public void OnClickStop()
+    {
+        if()
+    }
+    #endregion
+
+    #region PRIVATE_METHODS
+    #endregion
+
+    #region DELEGTE_CALLBACKS
+    #endregion
+
+    #region Coroutines
+    private IEnumerator StartMachine()
+    {
+        while (true)
+        {
+            for (int i = 0; i < txtFields.Count; i++)
+            {
+                int randNum = Random.Range(0, 10);
+                Debug.Log(randNum);
+                txtFields[i].text = randNum.ToString();
+
+            }
+        }
+    }
+    #endregion
+
+
 
     public void Update()
     {
         if (startClicked)
         {
-            for (int txts = 0; txts < txtFields.Count; txts++)
+            for (int i = 0; i < txtFields.Count; i++)
             {
-                var randNum = UnityEngine.Random.Range(0, 10);
+                int randNum = Random.Range(0, 10);
                 Debug.Log(randNum);
-                txtFields[txts].text = randNum.ToString();
-                if (txts == 2)
-                {
-                    get = randNum;
-                }
+                txtFields[i].text = randNum.ToString();
+                
             }
         }
     }
 
-    public void startOnClick()
+    public void OnClickStart()
     {
-        startClicked = true;
+        
     }
 
     public void StopOnClick()
