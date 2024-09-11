@@ -58,3 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore the PhotonServerSettings.asset (contains Photon App ID)
+Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+
+# Ignore the Photon SDK and libraries (optional if you want to exclude them)
+Assets/Photon/PhotonLibs/
+
+# Ignore other Photon settings files (if needed)
+Assets/Photon/PhotonUnityNetworking/Demos/
