@@ -34,7 +34,8 @@ public class SlotHandler : MonoBehaviour
 
     public void OnClickStop()
     {
-        if()
+        StopCoroutine(StartMachine());
+        //scoreCount = 
     }
     #endregion
 
@@ -76,11 +77,7 @@ public class SlotHandler : MonoBehaviour
         }
     }
 
-    public void OnClickStart()
-    {
-        
-    }
-
+  
     public void StopOnClick()
     {
         startClicked = false;
